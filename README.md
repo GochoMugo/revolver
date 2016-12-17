@@ -63,7 +63,9 @@ revolver: running command `echo = https://cmake.org'
 
 ## building:
 
-You will require [CMake][cmake]:
+You will require [CMake][cmake]. From our [latest release][latest-release],
+download the tarball or zipfile and uncompress it. In the uncompressed
+directory:
 
 ```bash
 $ mkdir build && cd build
@@ -80,3 +82,4 @@ Copyright (c) 2016 GochoMugo (www.gmugo.in)
 
 
 [cmake]:https://cmake.org
+[latest-release]:https://github.com/GochoMugo/revolver/releases/latest
