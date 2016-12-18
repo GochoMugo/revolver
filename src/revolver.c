@@ -17,12 +17,35 @@ int revolver_open_items_file(FILE **items_file, const char *items_file_path, con
 
 int revolver_close_items_file(FILE *items_file, const char *items_file_path) {
     int ret_code = 0;
+    int items_file_fd;
+    int items_file_stats;
     char temp_file_path[] = ".revolver-XXXXXX";
     int temp_file_fd;
     FILE *temp_file = NULL;
     char *lineptr = NULL;
     size_t n = 0;
     int lines = 0;
+
+    items_file_fd = fileno(items_file);
+    if (0 > items_file_fd) {
+        perror("close_items_file");
+        return ERR_REV;
+    }
+
+    items_file_stats = fcntl(items_file_fd, F_GETFL);
+    if (0 > items_file_stats) {
+        perror("close_items_file");
+        return ERR_REV;
+    }
+
+    if (O_APPEND & items_file_stats) {
+        ret_code = fclose(items_file);
+        if (0 > ret_code) {
+            perror("close_items_file");
+            return ERR_REV_FCLOSE;
+        }
+        return 0;
+    }
 
     temp_file_fd = mkstemp(temp_file_path);
     if (0 > temp_file_fd) {

@@ -6,6 +6,7 @@
 
 
 #include <errno.h>
+#include <fcntl.h>
 #include <getopt.h>
 #include <signal.h>
 #include <stdio.h>
