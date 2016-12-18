@@ -85,7 +85,7 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    if ((do_push + do_shift) > 1) {
+    if ((do_push + do_shift + do_revolve) > 1) {
         fprintf(stderr, "Conflicting options\n");
         return 1;
     }
@@ -111,28 +111,29 @@ int main(int argc, char **argv) {
     if (do_shift) {
         for (i = 0; i < items_num; i++) {
             ret_code = revolver_shift_item(&item, items_file);
-            if (0 != ret_code) {
+            if (0 > ret_code) {
                 return 2;
             }
             if (NULL == item) break;
             printf("%s\n", item);
             free(item);
         }
-        ret_code = revolver_close_items_file(items_file, items_file_path);
-        if (0 != ret_code) {
-            return 2;
-        }
-        return 0;
     }
 
-    for (i = optind; i < argc; i++) {
-        if (do_push) {
+    if (do_push) {
+        for (i = optind; i < argc; i++) {
             ret_code = revolver_push_item(items_file, argv[i]);
-        }
-        if (0 != ret_code) {
-            return 2;
+            if (0 > ret_code) {
+                return 2;
+            }
         }
     }
+
+    ret_code = revolver_close_items_file(items_file, items_file_path);
+    if (0 > ret_code) {
+        return 2;
+    }
+
     return 0;
 }
 
