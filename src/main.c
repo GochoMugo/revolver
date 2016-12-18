@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
                 return 2;
             }
             if (NULL == item) break;
-            printf("%s", item);
+            printf("%s\n", item);
             free(item);
         }
         ret_code = revolver_close_items_file(items_file, items_file_path);
