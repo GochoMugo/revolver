@@ -61,7 +61,7 @@ revolver: running command `echo = https://cmake.org'
    in quick succession.
 
 
-## building:
+## building and installing:
 
 You will require [CMake][cmake]. From our [latest release][latest-release],
 download the tarball or zipfile and uncompress it. In the uncompressed
@@ -71,6 +71,30 @@ directory:
 $ mkdir build && cd build
 $ cmake ..
 $ make install
+```
+
+
+## API:
+
+The `make install` adds the header file and shared library for revolver.
+Read through `include/revolver.h` for more information on the API.
+
+An example of using the API:
+
+```c
+#include <stdio.h>
+#include <revolver.h>
+
+int main(void) {
+    // print the version of revolver we are using
+    printf("revolver %d\n", REVOLVER_VERSION);
+
+    // this is same as running:
+    //  ./revolver --file=urls.txt --revolve="echo ="
+    revolver_revolve("urls.txt", "echo =");
+
+    return 0;
+}
 ```
 
 
