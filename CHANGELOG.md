@@ -7,7 +7,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Added:
 
-* shared library i.e. librevolver
+* Add shared library i.e. librevolver
+* Support closing items file after pushing
+
+Fixed:
+
+* Fix missing newline in output for shifting
+* Fix `undefined reference to 'DEBUG'` in library
 
 
 ## [0.0.0][0.0.0] - 2016-12-14
