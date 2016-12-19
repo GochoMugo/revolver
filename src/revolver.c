@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-int DEBUG = 1;
+int DEBUG = 0;
 
 
 int revolver_open_items_file(FILE **items_file, const char *items_file_path, const char *items_file_mode) {
