@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-int DEBUG = 0;
+int DEBUG = 1;
 
 
 int revolver_open_items_file(FILE **items_file, const char *items_file_path, const char *items_file_mode) {
@@ -123,7 +123,7 @@ int revolver_shift_item(char **out, FILE *items_file) {
     ret_code = getline(&lineptr, &n, items_file);
     if (0 > ret_code && 0 != errno) {
         perror("shift_item");
-        return ERR_REV_FWRITE;
+        return ERR_REV_FREAD;
     }
 
     lineptr[strlen(lineptr)-1] = 0;
@@ -161,10 +161,10 @@ int revolver_revolve(const char *items_file_path, const char *command) {
     sig_action_chld.sa_handler = &sig_handler_chld;
 
     ret_code = sigaction(SIGINT, &sig_action_int, NULL);
-    if (0 > ret_code) return -1;
+    if (0 > ret_code) return ERR_REV;
 
     ret_code = sigaction(SIGCHLD, &sig_action_chld, NULL);
-    if (0 > ret_code) return -1;
+    if (0 > ret_code) return ERR_REV;
 
     while (1) {
         ret_code = revolver_open_items_file(&items_file, items_file_path, "r+");
