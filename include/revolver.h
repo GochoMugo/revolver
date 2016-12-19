@@ -2,7 +2,7 @@
 #define _REVOLVER_revolver_h_ 1
 
 
-#define REVOLVER_VERSION "0.0.0"
+#define REVOLVER_VERSION "0.1.0"
 
 
 /**

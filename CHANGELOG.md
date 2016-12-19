@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][Unreleased]
 
+
+
+
+## [0.1.0][0.1.0] - 2016-12-19
+
 Added:
 
 * Add shared library i.e. librevolver
@@ -25,4 +30,5 @@ Fixed:
 
 
 [0.0.0]:https://github.com/GochoMugo/revolver/releases/tag/v0.0.0
-[Unreleased]: https://github.com/GochoMugo/revolver/compare/v0.0.0...master
+[0.1.0]:https://github.com/GochoMugo/revolver/releases/tag/v0.1.0
+[Unreleased]: https://github.com/GochoMugo/revolver/compare/v0.1.0...master
