@@ -9,6 +9,7 @@ Added:
 
 * Add shared library i.e. librevolver
 * Support closing items file after pushing
+* Document header file
 
 Fixed:
 
