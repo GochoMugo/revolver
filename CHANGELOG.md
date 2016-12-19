@@ -16,6 +16,7 @@ Fixed:
 * Fix missing newline in output for shifting
 * Fix `undefined reference to 'DEBUG'` in library
 * Fix returned error codes
+* Executable exits with error if no action is specified
 
 
 ## [0.0.0][0.0.0] - 2016-12-14
