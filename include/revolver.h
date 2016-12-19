@@ -19,6 +19,14 @@
 /* Error writing to file */
 #define ERR_REV_FWRITE  -6
 
+/**
+ * Items file open mode.
+ */
+/* Open file for pushing */
+#define REVOLVER_O_PUSH     "a"
+/* Open file for shifting */
+#define REVOLVER_O_SHIFT    "r+"
+
 
 /**
  * Open items file.

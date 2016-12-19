@@ -38,12 +38,12 @@ int main(int argc, char **argv) {
             break;
         case 'p':
             do_push = 1;
-            items_file_mode = "a";
+            items_file_mode = REVOLVER_O_PUSH;
             break;
         case 's':
             do_shift = 1;
             if (NULL != optarg) items_num = atoi(optarg);
-            items_file_mode = "r+";
+            items_file_mode = REVOLVER_O_SHIFT;
             break;
         case 'r':
             do_revolve = 1;
