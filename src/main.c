@@ -1,7 +1,7 @@
 #include "main.h"
 
 
-int DEBUG = 0;
+extern int DEBUG;
 
 
 int main(int argc, char **argv) {
