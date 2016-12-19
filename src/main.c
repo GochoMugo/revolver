@@ -85,8 +85,13 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    if ((do_push + do_shift + do_revolve) > 1) {
+    i = do_push + do_shift + do_revolve;
+
+    if (1 < i) {
         fprintf(stderr, "Conflicting options\n");
+        return 1;
+    } else if (0 == i) {
+        fprintf(stderr, "No action specified\n");
         return 1;
     }
 
